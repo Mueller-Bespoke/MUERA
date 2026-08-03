@@ -28,9 +28,20 @@ export default function MirrorsizeConfigurator({
   const configuratorInitialized = useRef(false);
 
   useEffect(() => {
+    // If the script is already loaded globally but state isn't updated
+    if (typeof window !== "undefined" && typeof (window as any).msConfigurator !== "undefined") {
+      setIsScriptLoaded(true);
+    }
+  }, []);
+
+  useEffect(() => {
     if (isScriptLoaded && !configuratorInitialized.current && typeof window !== "undefined") {
       // @ts-ignore
       if (typeof window.msConfigurator !== "undefined") {
+        if (!sku) {
+          console.warn("MirrorsizeConfigurator: SKU is missing or empty!");
+        }
+        
         const config = {
           merchantId,
           apiKey,
@@ -42,9 +53,17 @@ export default function MirrorsizeConfigurator({
           apiUrl,
           mobile: false,
         };
-        // @ts-ignore
-        new window.msConfigurator(config);
-        configuratorInitialized.current = true;
+        console.log("Initializing Mirrorsize Configurator with:", config);
+        
+        // Ensure the container exists before initializing
+        const container = document.getElementById("ms-configurator-container");
+        if (container) {
+          // @ts-ignore
+          new window.msConfigurator(config);
+          configuratorInitialized.current = true;
+        } else {
+          console.error("MirrorsizeConfigurator: Container #ms-configurator-container not found in DOM");
+        }
       } else {
         console.error("Mirrorsize configurator script not loaded properly.");
       }
