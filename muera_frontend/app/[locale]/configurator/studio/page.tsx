@@ -1,5 +1,5 @@
-import MirrorsizeConfigurator from "@/components/MirrorsizeConfigurator";
 import { getTranslations } from "next-intl/server";
+import ConfiguratorWrapper from "./ConfiguratorWrapper";
 
 export default async function ConfiguratorStudioPage({
   params,
@@ -11,17 +11,22 @@ export default async function ConfiguratorStudioPage({
 
   const merchantId = process.env.merchant_id || "muellerbespoke@gmail.com";
   const apiKey = process.env.apiKey || "";
-  const sku = process.env.MS_SKU || "test";
+
+  const skus = {
+    shirt: process.env.MS_SKU_SHIRT || "shirt12",
+    suit2p: process.env.MS_SKU_2PIECE || "2psuit",
+    suit3p: process.env.MS_SKU_3PIECE || "3psuit",
+  };
 
   return (
     <main
       style={{ paddingTop: "80px", backgroundColor: "var(--color-off-white)" }}
     >
-      <MirrorsizeConfigurator
+      <ConfiguratorWrapper
         merchantId={merchantId}
         apiKey={apiKey}
-        sku={sku}
-        language={locale}
+        skus={skus}
+        locale={locale}
       />
     </main>
   );
