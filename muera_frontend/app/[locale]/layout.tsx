@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import React from "react";
+import SessionHandler from "@/components/SessionHandler";
 import { Inter, Playfair_Display } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -90,6 +92,9 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <CartProvider>
+            <React.Suspense fallback={null}>
+              <SessionHandler />
+            </React.Suspense>
             <Navigation />
             <main>{children}</main>
             <Footer />

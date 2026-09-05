@@ -34,7 +34,7 @@ function CartContent() {
             const msData = result.data;
             console.log(msData);
             const product = PRODUCTS.find((p) => p.sku === msData.sku) || PRODUCTS[0];
-            const customPrice = parseFloat(msData.totalPrice || msData.price || "0");
+            const customPrice = msData.totalPrice ? parseFloat(msData.totalPrice) : (msData.price ? parseFloat(msData.price) : product.price);
             const customImage = msData.pieces?.[0]?.frontImage;
 
             addItem({

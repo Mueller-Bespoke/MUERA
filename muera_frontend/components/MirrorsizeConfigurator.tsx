@@ -29,14 +29,16 @@ export default function MirrorsizeConfigurator({
 
   useEffect(() => {
     // If the script is already loaded globally but state isn't updated
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== "undefined" && typeof (window as any).msConfigurator !== "undefined") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsScriptLoaded(true);
     }
   }, []);
 
   useEffect(() => {
     if (isScriptLoaded && !configuratorInitialized.current && typeof window !== "undefined") {
-      // @ts-ignore
+      // @ts-expect-error - msConfigurator is added to window by the external script
       if (typeof window.msConfigurator !== "undefined") {
         if (!sku) {
           console.warn("MirrorsizeConfigurator: SKU is missing or empty!");
@@ -58,7 +60,7 @@ export default function MirrorsizeConfigurator({
         // Ensure the container exists before initializing
         const container = document.getElementById("ms-configurator-container");
         if (container) {
-          // @ts-ignore
+          // @ts-expect-error - msConfigurator is added to window by the external script
           new window.msConfigurator(config);
           configuratorInitialized.current = true;
         } else {
