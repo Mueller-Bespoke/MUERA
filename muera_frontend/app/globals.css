@@ -918,7 +918,10 @@ p {
     align-items: flex-start;
     gap: 0;
     position: fixed;
-    inset: 72px 0 0;
+    top: 72px;
+    left: 0;
+    right: 0;
+    height: calc(100dvh - 72px);
     background: rgba(26, 22, 40, 0.97);
     padding: 2rem;
     z-index: 99;
