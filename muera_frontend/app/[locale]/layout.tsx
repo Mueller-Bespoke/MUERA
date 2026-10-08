@@ -10,6 +10,8 @@ import "../globals.css";
 import Navigation from "@/components/Navigation";
 import { CartProvider } from "@/context/CartContext";
 import Footer from "@/components/Footer";
+import FirstVisitPopup from "@/components/FirstVisitPopup";
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -98,6 +100,7 @@ export default async function LocaleLayout({
             <Navigation />
             <main>{children}</main>
             <Footer />
+            <FirstVisitPopup />
           </CartProvider>
         </NextIntlClientProvider>
       </body>

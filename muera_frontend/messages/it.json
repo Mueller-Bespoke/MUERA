@@ -30,7 +30,8 @@
     "closeMenu": "Chiudi menu",
     "openMenu": "Apri menu",
     "mueraHome": "MUERA — Home",
-    "primaryNav": "Navigazione principale"
+    "primaryNav": "Navigazione principale",
+    "aiAssist": "AI Assist"
   },
   "footer": {
     "privacy": "Privacy",
@@ -217,7 +218,7 @@
     "storyTitle2": "Eredità svizzera, mentalità moderna",
     "storyPara3": "Ogni abito realizzato tramite MUERA è fatto da Mueller Bespoke — una casa costruita su decenni di esperienza sartoriale, precisione e un impegno incrollabile per la qualità.",
     "storyPara4": "Combiniamo questa profonda tradizione artigianale con un processo digitale attentamente progettato, in modo che tu riceva un abito che sembra completamente personale senza la complessità di un atelier tradizionale.",
-    "quote": "\u00ab Il lusso non è nella volgarità.\nÈ la silenziosa fiducia di una vestibilità perfetta. \u00bb",
+    "quote": "« Il lusso non è nella volgarità.\nÈ la silenziosa fiducia di una vestibilità perfetta. »",
     "philosophyLabel": "Il nostro approccio",
     "philosophyTitle": "Tre principi che guidano tutto ciò che facciamo",
     "philosophy1Title": "Riduzione all'essenziale",
@@ -312,5 +313,11 @@
     "enFull": "English",
     "frFull": "Français",
     "itFull": "Italiano"
+  },
+  "firstVisit": {
+    "title": "Disegna il tuo abito perfetto",
+    "description": "Benvenuto da MUERA. Crea un abito su misura che ti calzi a pennello con il nostro configuratore 3D.",
+    "cta": "Apri il configuratore",
+    "close": "Forse più tardi"
   }
 }

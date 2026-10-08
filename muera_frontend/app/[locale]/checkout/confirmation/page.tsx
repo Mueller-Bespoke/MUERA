@@ -8,9 +8,8 @@ export default async function ConfirmationPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "confirmation" });
-  const commonT = await getTranslations({ locale, namespace: "common" });
 
-  const orderNumber = `MR-${Math.floor(10000 + Math.random() * 90000)}`;
+  const orderNumber = "MR-84729";
 
   const STEPS = [
     { step: "01", title: t("step1Title"), desc: t("step1Desc") },

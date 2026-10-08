@@ -30,7 +30,8 @@
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
     "mueraHome": "MUERA — Home",
-    "primaryNav": "Primary navigation"
+    "primaryNav": "Primary navigation",
+    "aiAssist": "AI Assist"
   },
   "footer": {
     "privacy": "Privacy",
@@ -217,7 +218,7 @@
     "storyTitle2": "Swiss heritage, modern thinking",
     "storyPara3": "Every suit crafted through MUERA is made by Mueller Bespoke — a house built on decades of tailoring experience, precision, and an unwavering commitment to quality.",
     "storyPara4": "We combine that deep craft tradition with a carefully designed digital process, so you receive a suit that feels entirely personal without the complexity of a traditional atelier.",
-    "quote": "\u201cLuxury is not about loudness.\nIt is about the quiet confidence of a perfect fit.\u201d",
+    "quote": "“Luxury is not about loudness.\nIt is about the quiet confidence of a perfect fit.”",
     "philosophyLabel": "Our approach",
     "philosophyTitle": "Three principles that guide everything we do",
     "philosophy1Title": "Reduction to what matters",
@@ -312,5 +313,11 @@
     "enFull": "English",
     "frFull": "Français",
     "itFull": "Italiano"
+  },
+  "firstVisit": {
+    "title": "Design Your Perfect Suit",
+    "description": "Welcome to MUERA. Create a made-to-measure suit that fits you perfectly using our 3D configurator.",
+    "cta": "Open Configurator",
+    "close": "Maybe later"
   }
 }

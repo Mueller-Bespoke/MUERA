@@ -30,7 +30,8 @@
     "closeMenu": "Menü schliessen",
     "openMenu": "Menü öffnen",
     "mueraHome": "MUERA — Startseite",
-    "primaryNav": "Hauptnavigation"
+    "primaryNav": "Hauptnavigation",
+    "aiAssist": "AI Assist"
   },
   "footer": {
     "privacy": "Datenschutz",
@@ -217,7 +218,7 @@
     "storyTitle2": "Schweizer Erbe, modernes Denken",
     "storyPara3": "Jeder über MUERA gefertigte Anzug wird von Mueller Bespoke hergestellt — einem Haus, das auf jahrzehntelanger Schneidererfahrung, Präzision und einem unerschütterlichen Qualitätsanspruch aufbaut.",
     "storyPara4": "Wir verbinden diese tiefe Handwerkstradition mit einem sorgfältig gestalteten digitalen Prozess, damit Sie einen Anzug erhalten, der sich ganz persönlich anfühlt — ohne die Komplexität eines traditionellen Ateliers.",
-    "quote": "\u201eLuxus liegt nicht in Lautst\u00e4rke.\nEr ist die stille Zuversicht einer perfekten Passform.\u201c",
+    "quote": "„Luxus liegt nicht in Lautstärke.\nEr ist die stille Zuversicht einer perfekten Passform.“",
     "philosophyLabel": "Unser Ansatz",
     "philosophyTitle": "Drei Prinzipien, die alles leiten, was wir tun",
     "philosophy1Title": "Reduktion auf das Wesentliche",
@@ -312,5 +313,11 @@
     "enFull": "English",
     "frFull": "Français",
     "itFull": "Italiano"
+  },
+  "firstVisit": {
+    "title": "Entwerfen Sie Ihren perfekten Anzug",
+    "description": "Willkommen bei MUERA. Kreieren Sie einen Maßanzug, der perfekt zu Ihnen passt, mit unserem 3D-Konfigurator.",
+    "cta": "Konfigurator öffnen",
+    "close": "Vielleicht später"
   }
 }

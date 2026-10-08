@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/data/products";
@@ -17,7 +18,6 @@ function CheckoutContent() {
   const { items, subtotal, clearCart } = useCart();
   const router = useRouter();
   const t = useTranslations("checkout");
-  const ct = useTranslations("common");
 
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>("card");
   const [submitting, setSubmitting] = useState(false);
@@ -253,8 +253,8 @@ function CheckoutContent() {
 
           <p style={{ fontSize: "0.75rem", color: "var(--color-mid-gray)", marginTop: "1rem", textAlign: "center" }}>
             {t.rich("agreement", {
-              privacyPolicy: (chunks) => <a href="/privacy" style={{ color: "var(--color-black)" }} key="pp">{chunks}</a>,
-              termsOfService: (chunks) => <a href="/style-guide" style={{ color: "var(--color-black)" }} key="tos">{chunks}</a>,
+              privacyPolicy: (chunks) => <Link href="/privacy" style={{ color: "var(--color-black)" }} key="pp">{chunks}</Link>,
+              termsOfService: (chunks) => <Link href="/style-guide" style={{ color: "var(--color-black)" }} key="tos">{chunks}</Link>,
             })}
           </p>
         </form>

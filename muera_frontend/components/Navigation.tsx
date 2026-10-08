@@ -35,6 +35,7 @@ export default function Navigation() {
     { label: t("journal"), href: "/blog" },
     { label: t("about"), href: "/about" },
     { label: t("contact"), href: "/contact" },
+    { label: t("aiAssist") || "AI Assist", href: "/ai-assist" },
     { label: t("configurator"), href: "/configurator" },
   ];
 

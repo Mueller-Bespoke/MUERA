@@ -30,7 +30,8 @@
     "closeMenu": "Fermer le menu",
     "openMenu": "Ouvrir le menu",
     "mueraHome": "MUERA — Accueil",
-    "primaryNav": "Navigation principale"
+    "primaryNav": "Navigation principale",
+    "aiAssist": "AI Assist"
   },
   "footer": {
     "privacy": "Confidentialité",
@@ -217,7 +218,7 @@
     "storyTitle2": "Héritage suisse, pensée moderne",
     "storyPara3": "Chaque costume confectionné via MUERA est réalisé par Mueller Bespoke — une maison bâtie sur des décennies d'expérience en couture, de précision et d'un engagement inébranlable envers la qualité.",
     "storyPara4": "Nous combinons cette profonde tradition artisanale avec un processus numérique soigneusement conçu, pour que vous receviez un costume qui semble entièrement personnel sans la complexité d'un atelier traditionnel.",
-    "quote": "\u00ab Le luxe n'est pas dans le tapage.\nC'est la confiance tranquille d'une coupe parfaite. \u00bb",
+    "quote": "« Le luxe n'est pas dans le tapage.\nC'est la confiance tranquille d'une coupe parfaite. »",
     "philosophyLabel": "Notre approche",
     "philosophyTitle": "Trois principes qui guident tout ce que nous faisons",
     "philosophy1Title": "Réduction à l'essentiel",
@@ -312,5 +313,11 @@
     "enFull": "English",
     "frFull": "Français",
     "itFull": "Italiano"
+  },
+  "firstVisit": {
+    "title": "Concevez votre costume parfait",
+    "description": "Bienvenue chez MUERA. Créez un costume sur mesure qui vous va parfaitement grâce à notre configurateur 3D.",
+    "cta": "Ouvrir le configurateur",
+    "close": "Peut-être plus tard"
   }
 }
