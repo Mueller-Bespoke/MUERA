@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const FOOTER_LINKS = [
   { labelKey: "shop", ns: "nav" as const, href: "/shop" },
@@ -8,7 +8,7 @@ const FOOTER_LINKS = [
   { labelKey: "contact", ns: "nav" as const, href: "/contact" },
   { labelKey: "configurator", ns: "nav" as const, href: "/configurator" },
   { labelKey: "privacy", ns: "footer" as const, href: "/privacy" },
-  { labelKey: "styleGuide", ns: "footer" as const, href: "/style-guide" },
+  { labelKey: "terms", ns: "footer" as const, href: "/terms" },
 ];
 
 export default async function Footer() {

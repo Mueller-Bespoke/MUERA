@@ -31,9 +31,11 @@
     "openMenu": "Ouvrir le menu",
     "mueraHome": "MUERA — Accueil",
     "primaryNav": "Navigation principale",
-    "aiAssist": "AI Assist"
+    "aiAssist": "AI Assist",
+    "account": "Compte"
   },
   "footer": {
+    "terms": "CGV",
     "privacy": "Confidentialité",
     "styleGuide": "Guide de style",
     "footerNav": "Navigation de pied de page",
@@ -119,7 +121,8 @@
     "relatedTitle": "Complétez le look",
     "addedToCart": "Ajouté au panier",
     "viewCart": "Voir le panier →",
-    "sizeLabel": "Taille {size}"
+    "sizeLabel": "Taille {size}",
+    "soldOut": "Épuisé"
   },
   "cart": {
     "title": "Votre panier",
@@ -147,7 +150,16 @@
     "increaseQty": "Augmenter la quantité",
     "remove": "Retirer {name}",
     "quantity": "Quantité",
-    "color": "Couleur"
+    "color": "Couleur",
+    "configError": "Impossible de charger votre configuration 3D.",
+    "customFabric": "Tissu personnalisé",
+    "customFit": "Coupe 3D sur mesure",
+    "onlyLeft": "Plus que {count} en stock — veuillez réduire la quantité.",
+    "soldOut": "Épuisé — veuillez retirer cet article.",
+    "configExpired": "Cette configuration n’est plus valide — veuillez la refaire.",
+    "unavailable": "N’est plus disponible — veuillez retirer cet article.",
+    "fixIssues": "Veuillez corriger les articles signalés pour continuer.",
+    "sizeLabel": "Taille {size}"
   },
   "checkout": {
     "title": "Paiement",
@@ -172,7 +184,7 @@
     "processing": "Traitement…",
     "privacyPolicy": "Politique de confidentialité",
     "termsOfService": "Conditions d'utilisation",
-    "agreement": "En passant commande, vous acceptez notre {privacyPolicy} et nos {termsOfService}.",
+    "agreement": "En passant commande, vous acceptez notre <privacyPolicy>Politique de confidentialité</privacyPolicy> et nos <termsOfService>Conditions d'utilisation</termsOfService>.",
     "yourOrder": "Votre commande",
     "subtotal": "Sous-total",
     "shipping": "Livraison",
@@ -185,7 +197,33 @@
       "FR": "France",
       "IT": "Italie",
       "GB": "Royaume-Uni"
-    }
+    },
+    "errors": {
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "address": "Veuillez compléter votre adresse de livraison.",
+      "payment": "Votre paiement n’a pas pu être traité.",
+      "cartChanged": "Le prix ou la disponibilité de certains articles a changé. Veuillez vérifier votre panier.",
+      "coupon": "Le code de réduction n’est plus valide.",
+      "generic": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "haveAccount": "Vous avez un compte ? <link>Connectez-vous</link> pour aller plus vite.",
+    "address2": "Appartement, étage, etc. (facultatif)",
+    "phone": "Téléphone (facultatif)",
+    "notes": "Remarques (facultatif)",
+    "discountCode": "Code de réduction",
+    "discountPlaceholder": "Saisir le code",
+    "apply": "Appliquer",
+    "couponErrors": {
+      "invalid": "Ce code n’est pas valide.",
+      "expired": "Ce code a expiré.",
+      "used_up": "Ce code a atteint sa limite d’utilisation.",
+      "minimum": "Votre commande n’atteint pas le minimum requis pour ce code."
+    },
+    "couponApplied": "Code {code} appliqué.",
+    "remove": "Retirer",
+    "custom3d": "Personnalisé 3D",
+    "discount": "Réduction",
+    "vatIncluded": "Dont {amount} de TVA"
   },
   "confirmation": {
     "title": "Commande confirmée",
@@ -202,7 +240,11 @@
     "step4Title": "Expédié",
     "step4Desc": "Expédié et suivi jusqu'à votre adresse.",
     "continueShopping": "Continuer mes achats",
-    "haveAQuestion": "Une question ?"
+    "haveAQuestion": "Une question ?",
+    "failedTitle": "Paiement non finalisé",
+    "failedText": "Votre paiement n’a pas abouti et vous n’avez pas été débité. Veuillez réessayer.",
+    "tryAgain": "Retour au paiement",
+    "processingText": "Votre paiement est en cours de traitement. Vous recevrez un e-mail de confirmation dès qu’il sera finalisé."
   },
   "about": {
     "title": "À propos",
@@ -233,6 +275,7 @@
     "ctaButton": "Créer votre costume"
   },
   "contact": {
+    "phoneLabel": "Téléphone",
     "title": "Contact",
     "description": "Contactez MUERA. Nous sommes là pour vous aider avec votre costume sur mesure. Écrivez-nous à info@muera.ch.",
     "heroLabel": "Prendre contact",
@@ -256,7 +299,11 @@
     "formSubjectPlaceholder": "Comment pouvons-nous vous aider ?",
     "formMessageLabel": "Message",
     "formMessagePlaceholder": "Décrivez votre demande…",
-    "formSubmit": "Envoyer le message"
+    "formSubmit": "Envoyer le message",
+    "sentTitle": "Merci pour votre message.",
+    "sentText": "Nous vous répondrons sous un jour ouvrable.",
+    "sendError": "Votre message n’a pas pu être envoyé. Veuillez réessayer.",
+    "sending": "Envoi…"
   },
   "blog": {
     "heroLabel": "Journal",
@@ -287,7 +334,13 @@
   },
   "configuratorStudio": {
     "title": "Studio du configurateur 3D",
-    "description": "Personnalisez votre costume parfait avec notre configurateur 3D."
+    "description": "Personnalisez votre costume parfait avec notre configurateur 3D.",
+    "label": "Studio de configuration",
+    "selectTitle": "Choisissez un vêtement",
+    "selectText": "Choisissez le vêtement que vous souhaitez personnaliser en 3D.",
+    "noGarments": "Aucun vêtement n’est disponible pour la personnalisation 3D pour le moment.",
+    "from": "À partir de {price}",
+    "change": "Changer de vêtement"
   },
   "configuratorSuccess": {
     "loading": "Chargement de votre configuration...",
@@ -319,5 +372,65 @@
     "description": "Bienvenue chez MUERA. Créez un costume sur mesure qui vous va parfaitement grâce à notre configurateur 3D.",
     "cta": "Ouvrir le configurateur",
     "close": "Peut-être plus tard"
+  },
+  "reviews": {
+    "label": "Avis",
+    "title": "Ce que disent nos clients",
+    "count": "{count, plural, one {# avis} other {# avis}}",
+    "empty": "Aucun avis pour l’instant — soyez le premier.",
+    "verified": "Achat vérifié",
+    "signInToReview": "Connectez-vous pour laisser un avis",
+    "thanks": "Merci ! Votre avis apparaîtra après validation.",
+    "rating": "Note",
+    "reviewTitle": "Titre",
+    "reviewBody": "Votre avis",
+    "error": "Impossible d’envoyer votre avis.",
+    "sending": "Envoi…",
+    "submit": "Publier l’avis"
+  },
+  "account": {
+    "label": "Mon compte",
+    "signInTitle": "Connexion",
+    "signUpTitle": "Créer un compte",
+    "forgotTitle": "Réinitialiser le mot de passe",
+    "fullName": "Nom complet",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "signIn": "Se connecter",
+    "createAccount": "Créer le compte",
+    "sendReset": "Envoyer le lien",
+    "haveAccount": "Déjà un compte ? Se connecter",
+    "noAccount": "Nouveau ? Créer un compte",
+    "forgot": "Mot de passe oublié ?",
+    "continueAsGuest": "Continuer en tant qu’invité",
+    "linkExpired": "Ce lien est invalide ou a expiré.",
+    "invalidLogin": "E-mail ou mot de passe incorrect.",
+    "checkEmail": "Vérifiez votre boîte mail pour confirmer votre adresse.",
+    "resetSent": "Si un compte existe, un lien vous a été envoyé.",
+    "newPasswordTitle": "Choisissez un nouveau mot de passe",
+    "savePassword": "Enregistrer",
+    "hello": "Bienvenue, {name}",
+    "signOut": "Se déconnecter",
+    "orders": "Commandes",
+    "noOrders": "Vous n’avez pas encore passé de commande.",
+    "madeToMeasure": "sur mesure",
+    "tracking": "Suivi",
+    "address": "Adresse de livraison",
+    "measurements": "Mes mensurations",
+    "noMeasurements": "Les mensurations du configurateur 3D apparaîtront ici.",
+    "configuration": "Configuration",
+    "saveAddress": "Enregistrer l’adresse",
+    "saved": "Enregistré",
+    "saveError": "Échec de l’enregistrement.",
+    "status": {
+      "pending": "Paiement en attente",
+      "confirmed": "Confirmée",
+      "processing": "En traitement",
+      "in_production": "En production",
+      "shipped": "Expédiée",
+      "delivered": "Livrée",
+      "cancelled": "Annulée",
+      "refunded": "Remboursée"
+    }
   }
 }

@@ -31,9 +31,11 @@
     "openMenu": "Menü öffnen",
     "mueraHome": "MUERA — Startseite",
     "primaryNav": "Hauptnavigation",
-    "aiAssist": "AI Assist"
+    "aiAssist": "AI Assist",
+    "account": "Konto"
   },
   "footer": {
+    "terms": "AGB",
     "privacy": "Datenschutz",
     "styleGuide": "Stilguide",
     "footerNav": "Fusszeilennavigation",
@@ -119,7 +121,8 @@
     "relatedTitle": "Vervollständigen Sie den Look",
     "addedToCart": "In den Warenkorb gelegt",
     "viewCart": "Warenkorb anzeigen →",
-    "sizeLabel": "Grösse {size}"
+    "sizeLabel": "Grösse {size}",
+    "soldOut": "Ausverkauft"
   },
   "cart": {
     "title": "Warenkorb",
@@ -147,7 +150,16 @@
     "increaseQty": "Menge erhöhen",
     "remove": "{name} entfernen",
     "quantity": "Menge",
-    "color": "Farbe"
+    "color": "Farbe",
+    "configError": "Ihre 3D-Konfiguration konnte nicht geladen werden.",
+    "customFabric": "Individueller Stoff",
+    "customFit": "Individuelle 3D-Passform",
+    "onlyLeft": "Nur noch {count} verfügbar – bitte Menge reduzieren.",
+    "soldOut": "Ausverkauft – bitte Artikel entfernen.",
+    "configExpired": "Diese Konfiguration ist nicht mehr gültig – bitte erneut konfigurieren.",
+    "unavailable": "Nicht mehr verfügbar – bitte Artikel entfernen.",
+    "fixIssues": "Bitte beheben Sie die markierten Artikel, um fortzufahren.",
+    "sizeLabel": "Grösse {size}"
   },
   "checkout": {
     "title": "Kasse",
@@ -172,7 +184,7 @@
     "processing": "Wird verarbeitet…",
     "privacyPolicy": "Datenschutzerklärung",
     "termsOfService": "AGB",
-    "agreement": "Mit der Bestellung stimmen Sie unserer {privacyPolicy} und unseren {termsOfService} zu.",
+    "agreement": "Mit der Bestellung stimmen Sie unserer <privacyPolicy>Datenschutzerklärung</privacyPolicy> und unseren <termsOfService>AGB</termsOfService> zu.",
     "yourOrder": "Ihre Bestellung",
     "subtotal": "Zwischensumme",
     "shipping": "Versand",
@@ -185,7 +197,33 @@
       "FR": "Frankreich",
       "IT": "Italien",
       "GB": "Vereinigtes Königreich"
-    }
+    },
+    "errors": {
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "address": "Bitte vervollständigen Sie Ihre Lieferadresse.",
+      "payment": "Ihre Zahlung konnte nicht verarbeitet werden.",
+      "cartChanged": "Preise oder Verfügbarkeit haben sich geändert. Bitte prüfen Sie Ihren Warenkorb.",
+      "coupon": "Der Rabattcode ist nicht mehr gültig.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "haveAccount": "Sie haben ein Konto? <link>Anmelden</link> für einen schnelleren Checkout.",
+    "address2": "Wohnung, Etage usw. (optional)",
+    "phone": "Telefon (optional)",
+    "notes": "Anmerkungen zur Bestellung (optional)",
+    "discountCode": "Rabattcode",
+    "discountPlaceholder": "Code eingeben",
+    "apply": "Anwenden",
+    "couponErrors": {
+      "invalid": "Dieser Code ist ungültig.",
+      "expired": "Dieser Code ist abgelaufen.",
+      "used_up": "Dieser Code wurde bereits zu oft verwendet.",
+      "minimum": "Ihre Bestellung erreicht den Mindestbetrag für diesen Code nicht."
+    },
+    "couponApplied": "Code {code} angewendet.",
+    "remove": "Entfernen",
+    "custom3d": "3D individuell",
+    "discount": "Rabatt",
+    "vatIncluded": "Inkl. {amount} MwSt."
   },
   "confirmation": {
     "title": "Bestellung bestätigt",
@@ -202,7 +240,11 @@
     "step4Title": "Versandt",
     "step4Desc": "Versandt und bis zu Ihrer Adresse verfolgbar.",
     "continueShopping": "Weiter einkaufen",
-    "haveAQuestion": "Fragen?"
+    "haveAQuestion": "Fragen?",
+    "failedTitle": "Zahlung nicht abgeschlossen",
+    "failedText": "Ihre Zahlung wurde nicht abgeschlossen und Ihnen wurde nichts belastet. Bitte versuchen Sie es erneut.",
+    "tryAgain": "Zurück zur Kasse",
+    "processingText": "Ihre Zahlung wird verarbeitet. Sie erhalten eine Bestätigung per E-Mail, sobald sie abgeschlossen ist."
   },
   "about": {
     "title": "Über uns",
@@ -233,6 +275,7 @@
     "ctaButton": "Anzug erstellen"
   },
   "contact": {
+    "phoneLabel": "Telefon",
     "title": "Kontakt",
     "description": "Nehmen Sie Kontakt mit MUERA auf. Wir helfen Ihnen gerne bei Ihrem Massanzug weiter. Schreiben Sie uns an info@muera.ch.",
     "heroLabel": "Kontakt aufnehmen",
@@ -256,7 +299,11 @@
     "formSubjectPlaceholder": "Wie können wir helfen?",
     "formMessageLabel": "Nachricht",
     "formMessagePlaceholder": "Teilen Sie uns Ihr Anliegen mit…",
-    "formSubmit": "Nachricht senden"
+    "formSubmit": "Nachricht senden",
+    "sentTitle": "Vielen Dank für Ihre Nachricht.",
+    "sentText": "Wir melden uns innerhalb eines Werktags.",
+    "sendError": "Ihre Nachricht konnte nicht gesendet werden. Bitte erneut versuchen.",
+    "sending": "Wird gesendet…"
   },
   "blog": {
     "heroLabel": "Journal",
@@ -287,7 +334,13 @@
   },
   "configuratorStudio": {
     "title": "3D-Konfigurator Studio",
-    "description": "Passen Sie Ihren perfekten Anzug mit unserem 3D-Konfigurator an."
+    "description": "Passen Sie Ihren perfekten Anzug mit unserem 3D-Konfigurator an.",
+    "label": "Konfigurator-Studio",
+    "selectTitle": "Kleidungsstück wählen",
+    "selectText": "Wählen Sie das Kleidungsstück, das Sie in 3D gestalten möchten.",
+    "noGarments": "Derzeit sind keine Kleidungsstücke für die 3D-Gestaltung verfügbar.",
+    "from": "Ab {price}",
+    "change": "Kleidungsstück wechseln"
   },
   "configuratorSuccess": {
     "loading": "Ihre Konfiguration wird geladen...",
@@ -319,5 +372,65 @@
     "description": "Willkommen bei MUERA. Kreieren Sie einen Maßanzug, der perfekt zu Ihnen passt, mit unserem 3D-Konfigurator.",
     "cta": "Konfigurator öffnen",
     "close": "Vielleicht später"
+  },
+  "reviews": {
+    "label": "Bewertungen",
+    "title": "Was Kunden sagen",
+    "count": "{count, plural, one {# Bewertung} other {# Bewertungen}}",
+    "empty": "Noch keine Bewertungen – schreiben Sie die erste.",
+    "verified": "Verifizierter Kauf",
+    "signInToReview": "Anmelden, um eine Bewertung zu schreiben",
+    "thanks": "Vielen Dank! Ihre Bewertung erscheint nach Freigabe.",
+    "rating": "Bewertung",
+    "reviewTitle": "Titel",
+    "reviewBody": "Ihre Bewertung",
+    "error": "Bewertung konnte nicht gesendet werden.",
+    "sending": "Wird gesendet…",
+    "submit": "Bewertung absenden"
+  },
+  "account": {
+    "label": "Mein Konto",
+    "signInTitle": "Anmelden",
+    "signUpTitle": "Konto erstellen",
+    "forgotTitle": "Passwort zurücksetzen",
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "signIn": "Anmelden",
+    "createAccount": "Konto erstellen",
+    "sendReset": "Link senden",
+    "haveAccount": "Bereits ein Konto? Anmelden",
+    "noAccount": "Neu hier? Konto erstellen",
+    "forgot": "Passwort vergessen?",
+    "continueAsGuest": "Als Gast weiter einkaufen",
+    "linkExpired": "Dieser Link ist ungültig oder abgelaufen.",
+    "invalidLogin": "E-Mail oder Passwort ist falsch.",
+    "checkEmail": "Bitte bestätigen Sie Ihre E-Mail-Adresse über den Link in Ihrem Posteingang.",
+    "resetSent": "Falls ein Konto existiert, ist ein Link unterwegs.",
+    "newPasswordTitle": "Neues Passwort wählen",
+    "savePassword": "Passwort speichern",
+    "hello": "Willkommen, {name}",
+    "signOut": "Abmelden",
+    "orders": "Bestellungen",
+    "noOrders": "Sie haben noch keine Bestellungen.",
+    "madeToMeasure": "Massanfertigung",
+    "tracking": "Sendungsverfolgung",
+    "address": "Lieferadresse",
+    "measurements": "Meine Masse",
+    "noMeasurements": "Masse aus dem 3D-Konfigurator erscheinen hier.",
+    "configuration": "Konfiguration",
+    "saveAddress": "Adresse speichern",
+    "saved": "Gespeichert",
+    "saveError": "Speichern fehlgeschlagen.",
+    "status": {
+      "pending": "Zahlung ausstehend",
+      "confirmed": "Bestätigt",
+      "processing": "In Bearbeitung",
+      "in_production": "In Produktion",
+      "shipped": "Versandt",
+      "delivered": "Zugestellt",
+      "cancelled": "Storniert",
+      "refunded": "Erstattet"
+    }
   }
 }

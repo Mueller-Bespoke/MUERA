@@ -1,79 +1,100 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import MirrorsizeConfigurator from "@/components/MirrorsizeConfigurator";
+import { formatPrice } from "@/lib/format";
+
+export interface Garment {
+  id: string;
+  slug: string;
+  name: string;
+  tagline: string;
+  price: number;
+  image: string;
+  msSku: string;
+}
 
 export default function ConfiguratorWrapper({
   merchantId,
   apiKey,
-  skus,
-  locale
+  garments,
+  initialSlug,
+  userId,
+  locale,
 }: {
   merchantId: string;
   apiKey: string;
-  skus: { shirt: string; suit2p: string; suit3p: string };
+  garments: Garment[];
+  initialSlug: string | null;
+  userId: string;
   locale: string;
 }) {
-  const [selectedSku, setSelectedSku] = useState<string | null>(null);
+  const t = useTranslations("configuratorStudio");
+  const [selected, setSelected] = useState<Garment | null>(
+    garments.find((g) => g.slug === initialSlug) ?? (garments.length === 1 ? garments[0] : null)
+  );
 
-  if (!selectedSku) {
+  if (!selected) {
     return (
       <div style={{
-        position: 'fixed', inset: 0, zIndex: 50,
-        backgroundColor: 'rgba(26, 22, 40, 0.4)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        padding: '1rem'
+        minHeight: "calc(100vh - 80px)",
+        display: "flex", alignItems: "center", justifyContent: "center",
+        padding: "3rem 1rem",
       }}>
-        <div style={{
-          backgroundColor: 'var(--color-off-white)',
-          padding: '4rem 3rem',
-          maxWidth: '500px',
-          width: '100%',
-          textAlign: 'center',
-          border: '1px solid var(--color-light-gray)',
-          boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-        }}>
-          <p className="section-label">Configurator Studio</p>
-          <h2 className="section-title">Select a Garment</h2>
-          <p style={{ marginBottom: '2.5rem', color: 'var(--color-mid-gray)' }}>
-            Choose the garment you would like to customize in the 3D studio.
-          </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <button 
-              onClick={() => setSelectedSku(skus.shirt)}
-              className="btn btn--outline-dark"
-              style={{ justifyContent: 'center', width: '100%' }}
-            >
-              Dress Shirt
-            </button>
-            <button 
-              onClick={() => setSelectedSku(skus.suit2p)}
-              className="btn btn--outline-dark"
-              style={{ justifyContent: 'center', width: '100%' }}
-            >
-              2 Piece Suit
-            </button>
-            <button 
-              onClick={() => setSelectedSku(skus.suit3p)}
-              className="btn btn--outline-dark"
-              style={{ justifyContent: 'center', width: '100%' }}
-            >
-              3 Piece Suit
-            </button>
-          </div>
+        <div style={{ maxWidth: 960, width: "100%", textAlign: "center" }}>
+          <p className="section-label">{t("label")}</p>
+          <h1 className="section-title">{t("selectTitle")}</h1>
+          <p style={{ marginBottom: "2.5rem", color: "var(--color-mid-gray)" }}>{t("selectText")}</p>
+          {garments.length === 0 ? (
+            <p style={{ color: "var(--color-mid-gray)" }}>{t("noGarments")}</p>
+          ) : (
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.5rem" }}>
+              {garments.map((g) => (
+                <button
+                  key={g.id}
+                  onClick={() => setSelected(g)}
+                  className="product-card"
+                  style={{ textAlign: "left", border: 0, padding: 0, cursor: "pointer", background: "#fff" }}
+                  id={`garment-${g.slug}`}
+                >
+                  <div className="product-card__img-wrap">
+                    <Image src={g.image} alt={g.name} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: "cover" }} />
+                  </div>
+                  <div className="product-card__body">
+                    <h2 className="product-card__name">{g.name}</h2>
+                    {g.tagline && <p className="product-card__tagline">{g.tagline}</p>}
+                    <p className="product-card__price">{t("from", { price: formatPrice(g.price) })}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     );
   }
 
   return (
-    <MirrorsizeConfigurator
-      merchantId={merchantId}
-      apiKey={apiKey}
-      sku={selectedSku}
-      language={locale}
-    />
+    <>
+      {garments.length > 1 && (
+        <div className="container" style={{ height: 52, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <span style={{ fontSize: "0.875rem" }}>{selected.name}</span>
+          <button onClick={() => setSelected(null)} className="btn btn--outline-dark" style={{ padding: "6px 14px", fontSize: "0.75rem" }}>
+            {t("change")}
+          </button>
+        </div>
+      )}
+      <MirrorsizeConfigurator
+        key={selected.id}
+        merchantId={merchantId}
+        apiKey={apiKey}
+        sku={selected.msSku}
+        productId={selected.id}
+        userId={userId}
+        language={locale}
+      />
+    </>
   );
 }

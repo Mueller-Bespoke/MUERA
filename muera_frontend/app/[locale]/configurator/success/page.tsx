@@ -2,12 +2,15 @@
 
 import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { formatPrice } from "@/lib/format";
+import { pendingConfiguratorProduct } from "@/lib/mirrorsize-pending";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
   const userSessionId = searchParams.get("userSessionId");
+  const locale = useLocale();
   const t = useTranslations("configuratorSuccess");
   const commonT = useTranslations("common");
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,15 +31,15 @@ function SuccessContent() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ userSessionId }),
+          body: JSON.stringify({ userSessionId, locale, productId: pendingConfiguratorProduct() }),
         });
 
         const result = await res.json();
 
-        if (result.status === 1000) {
-          setData(result.data);
+        if (res.ok) {
+          setData({ ...result.session, productName: result.product?.name, price: result.price });
         } else {
-          setError(result.message || "Failed to fetch details.");
+          setError(result.error || "Failed to fetch details.");
         }
       } catch {
         setError("An error occurred while fetching details.");
@@ -46,7 +49,7 @@ function SuccessContent() {
     };
 
     fetchDetails();
-  }, [userSessionId]);
+  }, [userSessionId, locale]);
 
   if (loading) {
     return <div style={{ padding: "4rem", textAlign: "center" }}>{t("loading")}</div>;
@@ -73,7 +76,8 @@ function SuccessContent() {
       {data && (
         <div style={{ background: "white", padding: "2rem", borderRadius: "8px", color: "#333" }}>
           <h2>{data.apparelName}</h2>
-          <p><strong>{t("sku", { sku: data.sku })}</strong></p>
+          {data.productName && <p>{data.productName}</p>}
+          {data.price != null && <p style={{ fontSize: "1.25rem", margin: "0.5rem 0" }}><strong>{formatPrice(data.price)}</strong></p>}
 
           <h3 style={{ marginTop: "2rem", marginBottom: "1rem" }}>{t("pieces")}</h3>
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
@@ -82,7 +86,7 @@ function SuccessContent() {
               <h4>{piece.pieceName}</h4>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               {piece.image && <img src={piece.image} alt={piece.pieceName} style={{ maxWidth: "200px" }} />}
-              <p><strong>{t("fabric")}:</strong> {piece.fabrics?.fabricName}</p>
+              {piece.fabric && <p><strong>{t("fabric")}:</strong> {piece.fabric}</p>}
 
               <h5 style={{ marginTop: "1rem" }}>{t("styleChoices")}</h5>
               <ul style={{ paddingLeft: "1.5rem" }}>
@@ -103,7 +107,7 @@ function SuccessContent() {
           ))}
 
           <div style={{ marginTop: "2rem", display: "flex", gap: "1rem" }}>
-            <Link href="/cart" className="btn btn--primary">
+            <Link href={`/cart?userSessionId=${encodeURIComponent(userSessionId)}`} className="btn btn--primary">
               {t("addToCart")}
             </Link>
             <Link href="/configurator" className="btn btn--outline-dark">

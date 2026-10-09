@@ -1,13 +1,26 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
+import type { Metadata } from "next";
+import { sanitizeArticleHtml } from "@/lib/sanitize";
 import { notFound } from "next/navigation";
-import { BLOGS, getBlogBySlug, getRecentBlogs } from "@/data/blogs";
+import { Link } from "@/i18n/navigation";
+import { getBlogPostBySlug, getBlogPosts } from "@/lib/catalog";
 
-export function generateStaticParams() {
-  return BLOGS.map((blog) => ({
-    slug: blog.slug,
-  }));
+export const dynamic = "force-dynamic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const post = await getBlogPostBySlug(locale, slug);
+  if (!post) return {};
+  return {
+    title: post.metaTitle ?? post.title,
+    description: post.metaDescription ?? post.excerpt,
+    openGraph: { images: [post.image] },
+  };
 }
 
 export default async function BlogPostPage({
@@ -16,14 +29,14 @@ export default async function BlogPostPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const post = getBlogBySlug(slug);
+  const post = await getBlogPostBySlug(locale, slug);
   const t = await getTranslations({ locale, namespace: "blog" });
 
   if (!post) {
     notFound();
   }
 
-  const recentBlogs = getRecentBlogs(3).filter((b) => b.id !== post.id).slice(0, 2);
+  const recentBlogs = (await getBlogPosts(locale)).filter((b) => b.id !== post.id).slice(0, 2);
 
   return (
     <>
@@ -64,7 +77,7 @@ export default async function BlogPostPage({
             <div
               className="blog-post__content"
               style={{ fontSize: "1.125rem", lineHeight: 1.8, color: "#4A4A4A" }}
-              dangerouslySetInnerHTML={{ __html: post.content }}
+              dangerouslySetInnerHTML={{ __html: sanitizeArticleHtml(post.content) }}
             />
           </div>
         </div>

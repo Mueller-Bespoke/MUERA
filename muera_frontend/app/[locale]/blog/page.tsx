@@ -1,7 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
-import { BLOGS } from "@/data/blogs";
+import { Link } from "@/i18n/navigation";
+import { getBlogPosts } from "@/lib/catalog";
+
+export const dynamic = "force-dynamic";
 
 export default async function BlogPage({
   params,
@@ -10,6 +12,7 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blog" });
+  const BLOGS = await getBlogPosts(locale);
 
   return (
     <>
@@ -46,8 +49,8 @@ export default async function BlogPage({
                 <div className="blog-card__body" style={{ padding: "2.5rem", display: "flex", flexDirection: "column", flexGrow: 1 }}>
                   <div className="blog-card__meta" style={{ fontSize: "0.75rem", color: "var(--color-mid-gray)", textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "1rem" }}>
                     <span>{new Date(post.date).toLocaleDateString(locale === "de" ? "de-CH" : locale === "fr" ? "fr-CH" : locale === "it" ? "it-CH" : "en-US", { month: "long", day: "numeric", year: "numeric" })}</span>
-                    <span>&bull;</span>
-                    <span>{post.readTime}</span>
+                    {post.readTime && <span>&bull;</span>}
+                    {post.readTime && <span>{post.readTime}</span>}
                   </div>
                   <h2 className="blog-card__title" style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", lineHeight: 1.3, marginBottom: "1rem", color: "var(--color-black)" }}>
                     {post.title}
